@@ -1,13 +1,13 @@
 ---
 name: autonomous-coding
-description: Use this skill when the user wants to scaffold, run, or customize Anthropic's autonomous-coding quickstart. It provides a deterministic bootstrap script plus a workflow for setup, execution, security tuning, and resume cycles.
+description: Use this skill when the user wants to scaffold, run, or customize an autonomous coding quickstart in Codex CLI. It provides a deterministic bootstrap script and a Codex-compatible session loop runner.
 ---
 
 # Autonomous Coding
 
 ## Overview
 
-Use this skill when requests mention Anthropic `claude-quickstarts/autonomous-coding`, long-running autonomous coding loops, or two-agent initializer plus coding execution.
+Use this skill when requests mention autonomous long-running coding loops, initializer plus coding-agent iterations, or porting Anthropic quickstart patterns to Codex CLI.
 
 Primary goal: bootstrap a working local copy quickly, then help iterate safely.
 
@@ -15,11 +15,9 @@ Primary goal: bootstrap a working local copy quickly, then help iterate safely.
 
 1. Bootstrap project from bundled upstream files:
    `bash scripts/bootstrap.sh --target <project-dir>`
-2. Create and activate Python environment in the target directory.
-3. Install dependencies from `requirements.txt`.
-4. Export `ANTHROPIC_API_KEY`.
-5. Run:
-   `python autonomous_agent_demo.py --project-dir ./my_project`
+2. Run Codex-compatible loop:
+   `python codex_autonomous_demo.py --project-dir ./my_project --max-iterations 1`
+3. Remove `--max-iterations` to continue autonomous iterations.
 
 ## Implementation Rules
 
@@ -28,10 +26,11 @@ Primary goal: bootstrap a working local copy quickly, then help iterate safely.
 - For faster demos, reduce feature count in `prompts/initializer_prompt.md` after bootstrap.
 - If commands are blocked, adjust allowlist in `security.py` with minimum necessary changes.
 - Preserve resume behavior: stop with `Ctrl+C` and rerun the same command to continue.
+- Prefer `codex_autonomous_demo.py` over `autonomous_agent_demo.py` for Codex environments.
 
 ## Troubleshooting Checklist
 
-- Missing API key: verify `ANTHROPIC_API_KEY` is set in current shell.
+- Missing Codex CLI: verify `codex --help` works.
 - Slow first run: initializer may take several minutes while generating `feature_list.json`.
 - Security blocks: inspect command, then extend `ALLOWED_COMMANDS` conservatively.
 - No progress: check project files (`feature_list.json`, git history, progress logs) in the target project directory.

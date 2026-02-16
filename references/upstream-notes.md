@@ -3,6 +3,7 @@
 - Upstream source copied from:
   - https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding
 - Main entrypoint: `autonomous_agent_demo.py`
+- Codex-compatible entrypoint added in this skill: `codex_autonomous_demo.py`
 - Key support files:
   - `agent.py`
   - `client.py`
