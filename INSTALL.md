@@ -17,6 +17,17 @@ rm -rf ~/.codex/skills/autonomous-coding
 cp -a /tmp/codex-skill-autonomous-coding ~/.codex/skills/autonomous-coding
 ```
 
+## 2b. Install bằng skill-installer (1 lệnh)
+
+Nếu môi trường Codex của bạn có sẵn script installer:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --url https://github.com/minhtritt1996/codex-skill-autonomous-coding/tree/master
+```
+
+Nếu repo dùng branch mặc định `main` thì đổi `master` thành `main`.
+
 ## 3. Verify skill structure
 
 ```bash
