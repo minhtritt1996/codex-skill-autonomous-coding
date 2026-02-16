@@ -1,0 +1,4 @@
+interface:
+  display_name: "Autonomous Coding Quickstart"
+  short_description: "Bootstrap and run Anthropic autonomous-coding workflow"
+  default_prompt: "Set up and run the autonomous-coding quickstart in this repo, then help me iterate safely."
